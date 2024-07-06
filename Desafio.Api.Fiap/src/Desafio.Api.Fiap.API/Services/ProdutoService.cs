@@ -17,5 +17,10 @@ namespace Desafio.Api.Fiap.API.Services
         {
             _produtoRepository.Cadastrar(produto);
         }
+
+        public IEnumerable<Produto> Listar()
+        {
+            return _produtoRepository.Listar();
+        }
     }
 }

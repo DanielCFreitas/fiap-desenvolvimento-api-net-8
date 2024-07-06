@@ -9,5 +9,11 @@ namespace Desafio.Api.Fiap.API.Repositories.Interfaces
         /// </summary>
         /// <param name="produto">Produto que sera cadastrado</param>
         void Cadastrar(Produto produto);
+
+        /// <summary>
+        /// Lista os produtos que estão salvos no banco de dados
+        /// </summary>
+        /// <returns>Lista de produtos</returns>
+        IEnumerable<Produto> Listar();
     }
 }

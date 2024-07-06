@@ -21,5 +21,12 @@ namespace Desafio.Api.Fiap.API.Repositories
 
             _dbConnection.Execute(sqlCommand, produto);
         }
+
+        public IEnumerable<Produto> Listar()
+        {
+            var sqlCommand = "SELECT * FROM \"Produtos\"";
+
+            return _dbConnection.Query<Produto>(sqlCommand);
+        }
     }
 }

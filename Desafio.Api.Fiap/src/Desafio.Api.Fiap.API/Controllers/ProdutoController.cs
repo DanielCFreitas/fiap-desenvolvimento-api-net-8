@@ -28,5 +28,17 @@ namespace Desafio.Api.Fiap.API.Controllers
             _produtoService.Cadastrar(produto);
             return Ok();
         }
+
+        /// <summary>
+        /// Lista todos os produtos
+        /// </summary>
+        /// <returns>Produtos que estao cadastrados</returns>
+        [HttpGet]
+        [Route("listar")]
+        public IActionResult Listar()
+        {
+            var produtos = _produtoService.Listar();
+            return Ok(produtos);
+        }
     }
 }
