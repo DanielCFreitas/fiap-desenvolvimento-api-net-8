@@ -16,6 +16,11 @@ namespace Desafio.Api.Fiap.API.Controllers
             _autenticacaoService = autenticacaoService;
         }
 
+        /// <summary>
+        /// Rota para realizar autenticacao de usuario
+        /// </summary>
+        /// <param name="autenticacao">Dados que devem ser recebidos para autenticar o usuario</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] AutenticacaoDoUsuarioViewModel autenticacao)
         {

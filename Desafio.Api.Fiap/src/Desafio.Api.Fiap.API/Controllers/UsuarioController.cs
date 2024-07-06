@@ -15,6 +15,11 @@ namespace Desafio.Api.Fiap.API.Controllers
             _usuarioRepository = usuarioRepository;
         }
 
+        /// <summary>
+        /// Cadastra um novo usuario no sistema
+        /// </summary>
+        /// <param name="usuario">Usuario que será cadastrado</param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post([FromBody] Usuario usuario)
         {

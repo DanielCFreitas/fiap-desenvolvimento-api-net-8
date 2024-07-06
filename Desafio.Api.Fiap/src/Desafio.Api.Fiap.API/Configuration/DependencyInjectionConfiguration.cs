@@ -10,10 +10,12 @@ namespace Desafio.Api.Fiap.API.Configuration
         public static void AddDependencyInjectionConfiguration(this IServiceCollection service)
         {
             // Repositories
+            service.AddScoped<IProdutoRepository, ProdutoRepository>();
             service.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
             // Services
             service.AddScoped<IAutenticacaoService, AutenticacaoService>();
+            service.AddScoped<IProdutoService, ProdutoService>();
         }
     }
 }
