@@ -1,4 +1,5 @@
 ﻿using Desafio.Api.Fiap.API.Model;
+using System.ComponentModel.DataAnnotations;
 
 namespace Desafio.Api.Fiap.API.Services.Interfaces
 {
@@ -15,5 +16,11 @@ namespace Desafio.Api.Fiap.API.Services.Interfaces
         /// </summary>
         /// <returns>Produtos que estão cadatrados</returns>
         IEnumerable<Produto> Listar();
+
+        /// <summary>
+        /// Exclui um produto pelo seu Id
+        /// </summary>
+        /// <param name="produtoId">Id do produto</param>
+        ValidationResult Excluir(Guid produtoId);
     }
 }

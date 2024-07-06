@@ -2,6 +2,7 @@
 using Desafio.Api.Fiap.API.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Desafio.Api.Fiap.API.Controllers
 {
@@ -39,6 +40,23 @@ namespace Desafio.Api.Fiap.API.Controllers
         {
             var produtos = _produtoService.Listar();
             return Ok(produtos);
+        }
+
+        /// <summary>
+        /// Exclui um produto do banco de dados
+        /// </summary>
+        /// <param name="produtoId">Id do produto</param>
+        /// <returns></returns>
+        [HttpDelete]
+        [Route("{produtoId}")]
+        public IActionResult Delete(Guid produtoId)
+        {
+            var resultado = _produtoService.Excluir(produtoId);
+
+            if (!resultado.ErrorMessage.IsNullOrEmpty())
+                return BadRequest(resultado.ErrorMessage);
+
+            return Ok();
         }
     }
 }
