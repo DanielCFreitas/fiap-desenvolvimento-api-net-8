@@ -20,6 +20,8 @@ namespace Desafio.Api.Fiap.API.Controllers
         /// </summary>
         /// <param name="usuario">Usuario que será cadastrado</param>
         /// <returns></returns>
+        /// <response code="200">OK - Cadastrou um novo usuario</response>
+        /// <response code="500">Internal Server Error - Erro inesperado</response>
         [HttpPost]
         public IActionResult Post([FromBody] Usuario usuario)
         {

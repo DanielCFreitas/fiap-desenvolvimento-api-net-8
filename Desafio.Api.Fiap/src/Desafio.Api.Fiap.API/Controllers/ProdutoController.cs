@@ -23,6 +23,8 @@ namespace Desafio.Api.Fiap.API.Controllers
         /// </summary>
         /// <param name="produto">Produto que deve ser cadastrado</param>
         /// <returns></returns>
+        /// <response code="200">OK - Cadastrado com sucesso</response>
+        /// <response code="500">Internal Server Error - Erro inesperado</response>
         [HttpPost]
         public IActionResult Post([FromBody] Produto produto)
         {
@@ -34,6 +36,8 @@ namespace Desafio.Api.Fiap.API.Controllers
         /// Lista todos os produtos
         /// </summary>
         /// <returns>Produtos que estao cadastrados</returns>
+        /// <response code="200">OK - Lista dos produtos que estão cadastrados</response>
+        /// <response code="500">Internal Server Error - Erro inesperado</response>
         [HttpGet]
         [Route("listar")]
         public IActionResult Listar()
@@ -47,6 +51,8 @@ namespace Desafio.Api.Fiap.API.Controllers
         /// </summary>
         /// <param name="produtoId">Id do produto</param>
         /// <returns></returns>
+        /// <response code="200">OK - Deletou um produto</response>
+        /// <response code="500">Internal Server Error - Erro inesperado</response>
         [HttpDelete]
         [Route("{produtoId}")]
         public IActionResult Delete(Guid produtoId)

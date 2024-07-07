@@ -21,6 +21,9 @@ namespace Desafio.Api.Fiap.API.Controllers
         /// </summary>
         /// <param name="autenticacao">Dados que devem ser recebidos para autenticar o usuario</param>
         /// <returns></returns>
+        /// <response code="200">OK - Token recuperado com sucesso</response>
+        /// <response code="400">BadRequest - Não conseguiur recuperar o token</response>
+        /// <response code="500">Internal Server Error - Erro inesperado</response>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] AutenticacaoDoUsuarioViewModel autenticacao)
         {

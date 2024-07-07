@@ -1,4 +1,5 @@
 ﻿using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 namespace Desafio.Api.Fiap.API.Configuration
 {
@@ -10,6 +11,12 @@ namespace Desafio.Api.Fiap.API.Configuration
             {
                 swaggerGen.SwaggerDoc("v1", new OpenApiInfo() { Title = "Desafio FIAP", Version = "v1" });
 
+                // Documentacao do swagger para cada endpoint
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                swaggerGen.IncludeXmlComments(xmlPath);
+
+                // Configuracao da autenticacao para o swagger para exemplificar como usar
                 swaggerGen.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "Digite Bearer[espaco]\"token\" no campo abaixo",
@@ -20,6 +27,7 @@ namespace Desafio.Api.Fiap.API.Configuration
                     BearerFormat = "JWT"
                 });
 
+                // Adiciona a autenticacao para o swagger
                 swaggerGen.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
                     {
