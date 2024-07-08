@@ -4,6 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddApiConfiguration();
 builder.Services.AddDependencyInjectionConfiguration();
 builder.Services.AddDatabaseConfiguration(builder.Configuration);
+builder.Services.AddMongoConfiguration(builder.Configuration);
 builder.Services.AddSwaggerConfiguration();
 
 var app = builder.Build();

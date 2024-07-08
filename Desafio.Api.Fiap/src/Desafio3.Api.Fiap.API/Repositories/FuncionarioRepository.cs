@@ -14,6 +14,12 @@ namespace Desafio3.Api.Fiap.API.Repositories
             _dbConnection = dbConnection;
         }
 
+        public async Task<Funcionario?> BuscarFuncinarioPorId(Guid id)
+        {
+            var sqlCommand = "SELECT * FROM \"Funcionario\" WHERE \"Id\" = @Id LIMIT 1";
+            return await _dbConnection.QueryFirstOrDefaultAsync<Funcionario?>(sqlCommand, new { Id = id });
+        }
+
         public void Cadastrar(Funcionario funcionario)
         {
             var sqlCommand = "INSERT INTO \"Funcionario\" (\"Id\", \"Nome\", \"Idade\", \"Pais\") VALUES (@Id, @Nome, @Idade, @Pais)";

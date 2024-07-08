@@ -20,5 +20,14 @@
         public string Cidade { get; set; }
         public string Estado { get; set; }
         public Guid FuncionarioId { get; set; }
+
+        public void AtualizarEndereco(string rua, int numero, string cep, string cidade, string estado)
+        {
+            Rua = rua;
+            Numero = numero;
+            CEP = cep;
+            Cidade = cidade;
+            Estado = estado;
+        }
     }
 }
