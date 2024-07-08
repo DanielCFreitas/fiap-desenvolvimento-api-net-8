@@ -19,5 +19,11 @@ namespace Desafio3.Api.Fiap.API.Repositories
             var sqlCommand = "INSERT INTO \"Funcionario\" (\"Id\", \"Nome\", \"Idade\", \"Pais\") VALUES (@Id, @Nome, @Idade, @Pais)";
             _dbConnection.Execute(sqlCommand, funcionario);
         }
+
+        public async Task<IEnumerable<Funcionario>> Listar()
+        {
+            var sqlCommand = "SELECT * FROM \"Funcionario\"";
+            return await _dbConnection.QueryAsync<Funcionario>(sqlCommand);
+        }
     }
 }

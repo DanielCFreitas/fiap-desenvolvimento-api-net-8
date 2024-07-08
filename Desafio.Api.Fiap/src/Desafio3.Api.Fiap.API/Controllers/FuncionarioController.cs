@@ -15,6 +15,13 @@ namespace Desafio3.Api.Fiap.API.Controllers
             _funcionarioRepository = funcionarioRepository;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var funcionarios = await _funcionarioRepository.Listar();
+            return Ok(funcionarios);
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody] Funcionario funcionario)
         {
